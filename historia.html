@@ -3,81 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapeuzinho Vermelho</title>
+    <title>A Floresta - Chapeuzinho Vermelho</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #ffe6e6;
-            color: #333;
+            font-family: Georgia, serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #142d1f, #07130d);
+            color: #fff;
+        }
+
+        header {
+            background: rgba(0,0,0,.35);
+            padding: 18px;
             text-align: center;
-            padding: 40px;
+            border-bottom: 1px solid #527a5c;
         }
 
-        .historia {
+        header h1 {
+            color: #ffb7c0;
+        }
+
+        .progresso {
+            width: 80%;
             max-width: 700px;
-            margin: auto;
-            background: white;
-            padding: 30px;
+            height: 10px;
+            background: #263c2c;
+            border-radius: 20px;
+            margin: 12px auto 0;
+            overflow: hidden;
+        }
+
+        .barra {
+            height: 100%;
+            width: 35%;
+            background: #e63946;
+            border-radius: 20px;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .cartao {
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.4);
+        }
+
+        .cena {
+            text-align: center;
+            font-size: 90px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffccd2;
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        .texto {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #eee;
+            margin-bottom: 30px;
+        }
+
+        .escolhas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .escolha {
+            border: none;
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        h1 {
-            color: #c0392b;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: #c0392b;
+            background: #8e1822;
             color: white;
-            text-decoration: none;
-            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: .3s;
+            border: 1px solid #d75a63;
         }
 
-        a:hover {
-            background: #922b21;
+        .escolha:hover {
+            background: #c62835;
+            transform: translateY(-5px);
+        }
+
+        .status {
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(0,0,0,.25);
+            border-radius: 12px;
+            text-align: center;
+            color: #d9f0dc;
+        }
+
+        .voltar {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            color: #ffc2c8;
+            text-decoration: none;
+        }
+
+        #resultado {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #183b25;
+            border-radius: 15px;
+            border-left: 5px solid #67c27b;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="historia">
-        <h1>🔴 Chapeuzinho Vermelho</h1>
+<header>
+    <h1>🔴 Chapeuzinho Vermelho</h1>
 
-        <p>
-            Era uma vez uma menina chamada Chapeuzinho Vermelho.
-            Um dia, sua mãe pediu que ela levasse uma cesta de doces
-            para sua avó, que estava doente.
-        </p>
-
-        <p>
-            No caminho pela floresta, Chapeuzinho encontrou um lobo.
-            O lobo descobriu onde sua avó morava e chegou primeiro à casa dela.
-        </p>
-
-        <p>
-            Quando Chapeuzinho chegou, percebeu que havia algo estranho.
-            Um caçador apareceu e conseguiu salvar Chapeuzinho e sua avó.
-        </p>
-
-        <p>
-            Depois disso, Chapeuzinho aprendeu a não conversar com estranhos
-            e a sempre ouvir os conselhos de sua mãe.
-        </p>
-
-        <h2>🌳 Fim!</h2>
-
-        <a href="index.html">⬅ Voltar ao início</a>
+    <div class="progresso">
+        <div class="barra"></div>
     </div>
+</header>
+
+<main>
+
+    <section class="cartao">
+
+        <div class="cena">🌲🐺🧺</div>
+
+        <h2>A floresta misteriosa</h2>
+
+        <p class="texto">
+            Chapeuzinho Vermelho caminhava pela floresta carregando
+            uma cesta cheia de doces para sua avó.
+            <br><br>
+
+            De repente, ela ouviu um barulho entre as árvores.
+            <strong>Era o lobo!</strong>
+            <br><br>
+
+            O lobo se aproximou e perguntou:
+            "Para onde você está indo, menina?"
+        </p>
+
+        <div class="escolhas">
+
+            <button class="escolha" onclick="escolher('falar')">
+                🗣️ Contar para onde está indo
+            </button>
+
+            <button class="escolha" onclick="escolher('ignorar')">
+                🚶 Ignorar o lobo e continuar
+            </button>
+
+        </div>
+
+        <div id="resultado"></div>
+
+        <div class="status">
+            ❤️ Coragem: <span id="coragem">3</span>
+            &nbsp; | &nbsp;
+            🧺 Cesta: intacta
+        </div>
+
+    </section>
+
+    <a href="index.html" class="voltar">← Voltar para a capa</a>
+
+</main>
+
+<script>
+
+    let coragem = 3;
+
+    function escolher(opcao) {
+
+        const resultado = document.getElementById("resultado");
+
+        if (opcao === "falar") {
+
+            coragem--;
+
+            resultado.innerHTML = `
+                <strong>🐺 O lobo sorriu...</strong><br><br>
+                Chapeuzinho contou que estava indo para a casa da avó.
+                O lobo rapidamente teve uma ideia e correu por um
+                caminho diferente para chegar primeiro à casa.
+                <br><br>
+                ⚠️ Talvez contar seus planos para estranhos não tenha
+                sido uma boa ideia!
+                <br><br>
+                <button class="escolha" onclick="continuar()">
+                    🌲 Continuar pela floresta
+                </button>
+            `;
+
+        } else {
+
+            resultado.innerHTML = `
+                <strong>✨ Boa escolha!</strong><br><br>
+                Chapeuzinho percebeu que não deveria conversar com
+                estranhos e continuou seu caminho.
+                O lobo ficou para trás.
+                <br><br>
+                <button class="escolha" onclick="continuar()">
+                    🏡 Ir para a casa da vovó
+                </button>
+            `;
+        }
+
+        document.getElementById("coragem").textContent = coragem;
+        resultado.style.display = "block";
+    }
+
+    function continuar() {
+        window.location.href = "final.html";
+    }
+
+</script>
 
 </body>
 </html>
