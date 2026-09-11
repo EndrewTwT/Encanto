@@ -1,163 +1,184 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapeuzinho Vermelho</title>
+<!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapeuzinho Vermelho</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Georgia, serif;
+        min-height: 100vh;
+        background:
+            linear-gradient(rgba(20, 5, 10, 0.45), rgba(20, 5, 10, 0.75)),
+            linear-gradient(135deg, #8b0000, #3b0710, #16070a);
+        color: white;
+        overflow: hidden;
+    }
+
+    .lua {
+        position: absolute;
+        width: 130px;
+        height: 130px;
+        background: #fff5c7;
+        border-radius: 50%;
+        top: 50px;
+        right: 10%;
+        box-shadow: 0 0 40px #fff1a8;
+    }
+
+    .floresta {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 35%;
+        background: #071b12;
+        clip-path: polygon(
+            0 60%, 5% 35%, 10% 60%, 15% 25%,
+            20% 55%, 25% 30%, 30% 60%, 35% 20%,
+            40% 55%, 45% 30%, 50% 60%, 55% 20%,
+            60% 55%, 65% 30%, 70% 60%, 75% 20%,
+            80% 55%, 85% 30%, 90% 60%, 95% 25%,
+            100% 60%, 100% 100%, 0 100%
+        );
+    }
+
+    .conteudo {
+        position: relative;
+        z-index: 2;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .emoji {
+        font-size: 90px;
+        animation: flutuar 3s infinite ease-in-out;
+    }
+
+    h1 {
+        font-size: clamp(45px, 8vw, 85px);
+        color: #ffccd2;
+        text-shadow: 4px 4px 0 #60000a, 0 0 25px #ff3b4d;
+        margin: 10px 0;
+    }
+
+    .subtitulo {
+        font-size: 22px;
+        max-width: 650px;
+        margin-bottom: 35px;
+        color: #ffe9e9;
+    }
+
+    .botao {
+        display: inline-block;
+        background: linear-gradient(135deg, #e63946, #a4161a);
+        color: white;
+        text-decoration: none;
+        padding: 18px 45px;
+        border-radius: 50px;
+        font-size: 21px;
+        font-weight: bold;
+        border: 2px solid #ff9aa2;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        transition: 0.3s;
+    }
+
+    .botao:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 30px #ff5260;
+    }
+
+    .aviso {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #e7bfc3;
+    }
+
+    @keyframes flutuar {
+        0%, 100% {
+            transform: translateY(0);
         }
 
-        body {
-            font-family: Georgia, serif;
-            min-height: 100vh;
-            background:
-                linear-gradient(rgba(20, 5, 10, 0.45), rgba(20, 5, 10, 0.75)),
-                linear-gradient(135deg, #8b0000, #3b0710, #16070a);
-            color: white;
-            overflow: hidden;
+        50% {
+            transform: translateY(-12px);
+        }
+    }
+
+    .estrela {
+        position: absolute;
+        color: #fff3b0;
+        animation: piscar 2s infinite alternate;
+    }
+
+    .e1 {
+        top: 15%;
+        left: 15%;
+    }
+
+    .e2 {
+        top: 25%;
+        left: 35%;
+        animation-delay: .5s;
+    }
+
+    .e3 {
+        top: 12%;
+        right: 35%;
+        animation-delay: 1s;
+    }
+
+    .e4 {
+        top: 40%;
+        right: 15%;
+        animation-delay: 1.5s;
+    }
+
+    @keyframes piscar {
+        from {
+            opacity: .2;
         }
 
-        .lua {
-            position: absolute;
-            width: 130px;
-            height: 130px;
-            background: #fff5c7;
-            border-radius: 50%;
-            top: 50px;
-            right: 10%;
-            box-shadow: 0 0 40px #fff1a8;
+        to {
+            opacity: 1;
         }
+    }
+</style>
 
-        .floresta {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 35%;
-            background: #071b12;
-            clip-path: polygon(
-                0 60%, 5% 35%, 10% 60%, 15% 25%,
-                20% 55%, 25% 30%, 30% 60%, 35% 20%,
-                40% 55%, 45% 30%, 50% 60%, 55% 20%,
-                60% 55%, 65% 30%, 70% 60%, 75% 20%,
-                80% 55%, 85% 30%, 90% 60%, 95% 25%,
-                100% 60%, 100% 100%, 0 100%
-            );
-        }
+</head> <body>
+<div class="lua"></div>
 
-        .conteudo {
-            position: relative;
-            z-index: 2;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+<div class="estrela e1">✦</div>
+<div class="estrela e2">✧</div>
+<div class="estrela e3">✦</div>
+<div class="estrela e4">✧</div>
 
-        .emoji {
-            font-size: 90px;
-            animation: flutuar 3s infinite ease-in-out;
-        }
+<div class="conteudo">
 
-        h1 {
-            font-size: clamp(45px, 8vw, 85px);
-            color: #ffccd2;
-            text-shadow: 4px 4px 0 #60000a, 0 0 25px #ff3b4d;
-            margin: 10px 0;
-        }
+    <div class="emoji">🔴</div>
 
-        .subtitulo {
-            font-size: 22px;
-            max-width: 650px;
-            margin-bottom: 35px;
-            color: #ffe9e9;
-        }
+    <h1>Chapeuzinho Vermelho</h1>
 
-        .botao {
-            display: inline-block;
-            background: linear-gradient(135deg, #e63946, #a4161a);
-            color: white;
-            text-decoration: none;
-            padding: 18px 45px;
-            border-radius: 50px;
-            font-size: 21px;
-            font-weight: bold;
-            border: 2px solid #ff9aa2;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            transition: 0.3s;
-        }
+    <p class="subtitulo">
+        Uma pequena aventura pela floresta, onde cada escolha pode mudar a história...
+    </p>
 
-        .botao:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 30px #ff5260;
-        }
+    <a href="historia.html" class="botao">
+        🌲 Começar aventura
+    </a>
 
-        .aviso {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #e7bfc3;
-        }
+    <p class="aviso">
+        Prepare-se para entrar na floresta...
+    </p>
 
-        @keyframes flutuar {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
+</div>
 
-        .estrela {
-            position: absolute;
-            color: #fff3b0;
-            animation: piscar 2s infinite alternate;
-        }
+<div class="floresta"></div>
 
-        .e1 { top: 15%; left: 15%; }
-        .e2 { top: 25%; left: 35%; animation-delay: .5s; }
-        .e3 { top: 12%; right: 35%; animation-delay: 1s; }
-        .e4 { top: 40%; right: 15%; animation-delay: 1.5s; }
-
-        @keyframes piscar {
-            from { opacity: .2; }
-            to { opacity: 1; }
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="lua"></div>
-
-    <div class="estrela e1">✦</div>
-    <div class="estrela e2">✧</div>
-    <div class="estrela e3">✦</div>
-    <div class="estrela e4">✧</div>
-
-    <div class="conteudo">
-
-        <div class="emoji">🔴</div>
-
-        <h1>Chapeuzinho Vermelho</h1>
-
-        <p class="subtitulo">
-            Uma pequena aventura pela floresta, onde cada escolha pode mudar a história...
-        </p>
-
-        <a href="historia.html" class="botao">
-            🌲 Começar aventura
-        </a>
-
-        <p class="aviso">
-            Prepare-se para entrar na floresta...
-        </p>
-
-    </div>
-
-    <div class="floresta"></div>
-
-</body>
-</html>
+</body> </html>
