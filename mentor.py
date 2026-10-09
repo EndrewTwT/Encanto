@@ -1,4 +1,3 @@
-```python
 import tiktoken
 
 # Tokenizador local, sem usar a API
