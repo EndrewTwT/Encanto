@@ -67,15 +67,30 @@ teste2 = executar_teste(
     resposta_detalhada
 )
 
-print("\nCOMPARAÇÃO FINAL")
-print(f"Total do teste curto: {teste1[2]}")
-print(f"Total do teste detalhado: {teste2[2]}")
-print(f"Diferença: {teste2[2] - teste1[2]} tokens")
+
+print("\n========== COMPARAÇÃO FINAL ==========")
+
+print("\nTESTE 1 - PROMPT CURTO")
+print(f"Tokens de entrada: {teste1[0]}")
+print(f"Tokens de saída:   {teste1[1]}")
+print(f"Total de tokens:   {teste1[2]}")
+
+print("\nTESTE 2 - PROMPT DETALHADO")
+print(f"Tokens de entrada: {teste2[0]}")
+print(f"Tokens de saída:   {teste2[1]}")
+print(f"Total de tokens:   {teste2[2]}")
+
+print("\nDIFERENÇA ENTRE OS TESTES")
+print(f"Entrada: {teste2[0] - teste1[0]} tokens")
+print(f"Saída:   {teste2[1] - teste1[1]} tokens")
+print(f"Total:   {teste2[2] - teste1[2]} tokens")
 
 if teste2[2] > teste1[2]:
-    print("O teste detalhado consumiu mais tokens.")
+    print("\nO prompt detalhado consumiu mais tokens.")
+elif teste1[2] > teste2[2]:
+    print("\nO prompt curto consumiu mais tokens.")
 else:
-    print("O teste curto consumiu mais ou a contagem foi igual.")
+    print("\nOs dois testes tiveram o mesmo total.")
 
-print("\nAtenção: as respostas são exemplos, não foram geradas por IA.")
-print("O tokenizador utilizado é cl100k_base.")
+print("\nObs.: as respostas são exemplos locais,")
+print("não foram geradas por uma IA.")
